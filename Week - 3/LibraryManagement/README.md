@@ -5,14 +5,22 @@ This is a simple Spring-based Java application that demonstrates how to configur
 
 ---
 
-## 📚 Exercise
+## 📚 Exercises Covered
 
-**Exercise 1: Configuring a Basic Spring Application**
+### ✅ Exercise 1: Configuring a Basic Spring Application
 
-### ✅ Key Features:
-- Uses Spring's `ApplicationContext` for bean loading
-- Defines `BookService` and `BookRepository` beans via `applicationContext.xml`
-- Demonstrates setter injection using Spring
+- Setup a Maven-based Java application with Spring Core dependency
+- Created `BookService` and `BookRepository` classes
+- Configured beans in `applicationContext.xml`
+- Loaded Spring context in a main class (`LibraryManagementApplication`)
+- Verified Spring is working by printing a book name via the service
+
+### ✅ Exercise 2: Implementing Dependency Injection
+
+- Focused on **Spring's Inversion of Control (IoC)** and **Setter-based Dependency Injection**
+- Defined a `setBookRepository()` method in `BookService`
+- Used the `<property>` tag in `applicationContext.xml` to inject `BookRepository` into `BookService`
+- Validated DI works by calling service logic in the main class
 
 ---
 
@@ -25,7 +33,7 @@ LibraryManagement/
 │   ├── main/
 │   │   ├── java/
 │   │   │   └── com/library/
-│   │   │       ├── MainApp.java
+│   │   │       ├── LibraryManagementApplication.java
 │   │   │       ├── service/BookService.java
 │   │   │       └── repository/BookRepository.java
 │   └── resources/
@@ -48,7 +56,7 @@ mvn compile
 ### ▶️ Run the App
 Use this exact syntax in PowerShell:
 ```powershell
-mvn exec:java "-Dexec.mainClass=com.library.MainApp"
+mvn exec:java "-Dexec.mainClass=com.library.LibraryManagementApplication"
 ```
 
 ### ✅ Expected Output
@@ -80,6 +88,6 @@ Book fetched: Clean Code by Robert C. Martin
 |------------------|-----------------------------------------|
 | `BookRepository` | Returns book info (mock DB)             |
 | `BookService`    | Depends on `BookRepository` via setter  |
-| `MainApp`        | Loads Spring context and runs service   |
+| `LibraryManagementApplication` | Loads Spring context and runs service   |
 
 ---
